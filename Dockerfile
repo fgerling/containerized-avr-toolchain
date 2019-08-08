@@ -1,7 +1,7 @@
 FROM alpine
 RUN apk add build-base
 RUN apk add curl
-WORKDIR /avr
-COPY ./env.conf /avr/
-COPY ./run.sh /avr/
-ENTRYPOINT /bin/sh
+WORKDIR /app
+COPY ./run.sh /app/
+VOLUME ["/avr-toolchain"]
+ENTRYPOINT /app/run.sh

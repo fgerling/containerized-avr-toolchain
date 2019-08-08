@@ -15,11 +15,9 @@ podman build -t avr_toolchain:latest .
 ```
 ### Running
 ```
-# run the container. This will drop you into a `sh` shell.
-podman run -ti avr_toolchain:latest
-# From here on, you are operating inside the container
-# execute `run.sh`. This will curl binutils, gcc and avr-libc and `configure`
-# and `make` the different projects, while also installing build-time
-# requirments for gcc.
-avr_toolchain $ ./run.sh
+# run the container while mounting `/avr-toolchain` to a local directory.
+podman run -ti -v $(pwd)/avr:/avr-toolchain avr_toolchain:latest
+
+# After the container (sucessfully exit), you can find the toolchain the
+# directory you mounted inside the container.
 ```

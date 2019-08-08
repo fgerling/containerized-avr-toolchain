@@ -1,6 +1,6 @@
 set -e
-. ./env.conf
-env
+export PREFIX=/avr-toolchain
+export PATH=$PREFIX/bin:$PATH
 root_dir=$(pwd)
 
 curl -L -O https://ftp.gnu.org/gnu/binutils/binutils-2.32.tar.xz
